@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :venues
 
   get "publish_event/:id" => "events#publish" 
-  get "events/mine" => "events#mine"
+  get "my_events" => "events#mine"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
