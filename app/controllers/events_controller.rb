@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all    
+    @events = Event.where("ends_at >= :today", {today: DateTime.current})    
   end
 
   def show
@@ -15,6 +15,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @categories = Category.all
+    @venues = Venue.all
     if @event.save
       redirect_to events_path
     else
