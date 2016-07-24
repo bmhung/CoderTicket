@@ -45,6 +45,33 @@
                     <button type="submit" class="btn btn-primary">Edit Event</button>
                 </fieldset>
             <% end %>
+            <h3>Ticket type: <%= @event.ticket_types.count %></h3>
+            <% @event.ticket_types.each do |t| %>
+                <div class="clearfix">
+                    <label><%= t.name %> - <%= t.price %> vnd</label>
+                    <%= form_tag event_ticket_path(@event.id, t.id), method: :delete, style: "float: right" do %>
+                        <button type="submit" class="btn btn-danger btn-sm" style="float: right">x</button>
+                    <% end %>
+                </div>
+            <% end %>
+            <h3>Add ticket</h3>
+            <%= form_tag event_tickets_path(@event.id), method: :post, class: "add-ticket-form" do %>
+                <fieldset class="form-group">
+                    <label for="name">Ticket name</label>
+                    <input type="text" class="form-control" id="name" name="TicketType[name]">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="price">Ticket price</label>
+                    <input type="text" class="form-control" id="price" name="TicketType[price]">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="quantity">Max quantity</label>
+                    <input type="text" class="form-control" id="quantity" name="TicketType[max_quantity]">
+                </fieldset>
+                <fieldset class="form-group">
+                    <button type="submit" class="btn btn-primary">Create ticket</button>
+                </fieldset>
+            <% end %>
         </div>
     </div>
 </div>

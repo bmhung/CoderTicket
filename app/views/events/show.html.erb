@@ -27,6 +27,11 @@
     <div class="col-md-9 event-content">
       <div class="hero-img hidden-sm-down" style="background-image: url(<%= @event.hero_image_url %>); background-size: cover;"> </div>
       <div class="container">
+        <% if notice %>          
+          <div class="alert alert-success" role="alert">
+            <%= notice %>
+          </div>
+        <% end %>
         <h3> <%= @event.name %> 
         <% if @event.user_id == current_user.id %>
           <a href="/events/<%= @event.id %>/edit">Edit</a>
