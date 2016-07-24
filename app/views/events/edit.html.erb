@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+            <h2>Create event</h2>
+            <%= form_tag event_path(@event.id), method: :patch, class: "new-event-form" do %>
+                <input type="hidden" name="event[user_id]" value="<%= current_user.id %>"/>
+                <input type="hidden" name="event[id]" value="<%= current_user.id %>"/>
+                <fieldset class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="event[name]" placeholder="Enter event name" value="<%= @event.name %>">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="description">Description</label>
+                    <textarea type="text" class="form-control" id="description" name="event[extended_html_description]" placeholder="Enter event description"><%= @event.extended_html_description %></textarea>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label>Start date</label>
+                    <%= datetime_select :event, :starts_at %>
+                </fieldset>
+                <fieldset class="form-group">       
+                    <label>End date</label>
+                    <%= datetime_select :event, :ends_at %>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label>Image</label>
+                    <input type="text" class="form-control" id="name" name="event[hero_image_url]" placeholder="Enter event image url" value="<%= @event.hero_image_url %>">
+                </fieldset>   
+                <fieldset class="form-group">
+                    <label>Category</label>
+                    <select class="form-control" name="event[category_id]">
+                        <% @categories.each do |c| %>
+                            <option value="<%= c.id %>" <% if c.id == @event.category_id%><%= "selected" %><% end %>><%= c.name %></option>
+                        <% end %>
+                    </select>
+                </fieldset>                
+                <fieldset class="form-group">
+                    <label>Venue</label>
+                    <select class="form-control" name="event[venue_id]">
+                        <% @venues.each do |v| %>
+                            <option value="<%= v.id %>" <% if v.id == @event.venue_id%><%= "selected" %><% end %>><%= v.name %> - <%= v.full_address %></option>
+                        <% end %>
+                    </select>
+                </fieldset>
+                <fieldset class="form-group">
+                    <button type="submit" class="btn btn-primary">Edit Event</button>
+                </fieldset>
+            <% end %>
+        </div>
+    </div>
+</div>

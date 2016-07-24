@@ -40,6 +40,7 @@ gem 'capybara', '~> 2.7', '>= 2.7.1'
 gem 'launchy'
 gem 'devise'
 
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
