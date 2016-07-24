@@ -13,15 +13,18 @@
     <ul class="nav navbar-nav">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <label class="nav-link">Logged in as <%= current_user.name %></label>
-        </li>
-        <li class="nav-item">
           <%= form_tag destroy_user_session_path, method: :delete do %>
-            <button type="submit" class="nav-link btn btn-link" href="/users/sign_out">Sign Out</button>
+            <button type="submit" class="nav-link btn btn-link" href="/users/sign_out">Log out as <%= current_user.name %></button>
           <% end %>
         </li>
         <li class="nav-item">
           <a href="/events/new" class="nav-link">Create Event</a>
+        </li>
+        <li class="nav-item">
+          <a href="/venues/new" class="nav-link">Create Venue</a>
+        </li>
+        <li class="nav-item">
+          <a href="/events/mine" class="nav-link">My events</a>
         </li>
       <% else %> 
         <li class="nav-item">

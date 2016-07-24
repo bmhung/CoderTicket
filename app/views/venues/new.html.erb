@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+            <h2>Create venue</h2>
+            <%= form_tag venues_path, method: :post do %>
+                <fieldset class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="venue[name]">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="description">Address</label>
+                    <textarea type="text" class="form-control" id="description" name="venue[full_address]"></textarea>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label>Category</label>
+                    <select class="form-control" name="venue[region_id]">
+                        <% @regions.each do |r| %>
+                            <option value="<%= r.id %>"><%= r.name %></option>
+                        <% end %>
+                    </select>
+                </fieldset>
+                <fieldset class="form-group">
+                    <button type="submit" class="btn btn-primary">Create Venue</button>
+                </fieldset>
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -40,4 +40,14 @@ class EventsController < ApplicationController
       render "edit"
     end
   end
+
+  def publish
+    @event = Event.find(params[:id])
+    unless @event.ticket_types.count > 0
+      @event.publish_at = DateTime.current
+      @event.save    
+      redirect_to root_path
+    end
+  end
+
 end
