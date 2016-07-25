@@ -1,4 +1,4 @@
-# Homework 3 - *Name of App*
+# Homework 3 - CoderTicket
 
 **Name of your app** is a Ruby on Rails blog application that allows users to create and buy tickets to cool events. 
 
