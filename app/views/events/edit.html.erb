@@ -2,11 +2,14 @@
     <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
             <h2>
-                Create event
-                <% if @event.ticket_types.count > 0 %>                  
+                Edit event
+                <% if @event.ticket_types.count > 0 && @event.publish_at == nil %>                  
                     <a href="/publish_event/<%= @event.id %>" class="btn btn-primary">Publish</a>
                 <% end %>
-            </h2>
+            </h2>            
+            <% if @event.publish_at != nil %>
+                <em>(Published at <%= @event.publish_at.to_formatted_s(:short) %>)</em>
+            <% end %>
             <%= form_tag event_path(@event.id), method: :patch, class: "new-event-form" do %>
                 <input type="hidden" name="event[user_id]" value="<%= current_user.id %>"/>
                 <input type="hidden" name="event[id]" value="<%= current_user.id %>"/>

@@ -45,10 +45,12 @@ class EventsController < ApplicationController
 
   def publish
     @event = Event.find(params[:id])
-    unless @event.ticket_types.count > 0
+    if @event.ticket_types.count > 0
       @event.publish_at = DateTime.current
       @event.save    
       redirect_to root_path
+    else
+      redirect_to edit_event_path(@event.id), notice: "Publish failed!"
     end
   end
 
