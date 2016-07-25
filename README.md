@@ -6,7 +6,7 @@ Submitted by: Bui Minh Hung
 
 Time spent: 8 hours
 
-URL: **Insert your Heroku URL here**
+URL: https://tranquil-coast-39714.herokuapp.com/
 
 SimpleCov Test Coverage: **Insert percentage or link to report here**
 
