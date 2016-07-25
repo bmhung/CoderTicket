@@ -34,8 +34,13 @@
           <a class="nav-link" href="/users/sign_up">Sign Up</a>
         </li>
       <% end %>
-    </ul>
-  </nav>  
+    </ul>   
+    <% if notice %>          
+      <div class="alert alert-success" role="alert">
+        <%= notice %>
+      </div>
+    <% end %>
+  </nav>   
 
 <%= yield %>
 

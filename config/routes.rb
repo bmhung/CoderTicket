@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get "publish_event/:id" => "events#publish" 
   get "my_events" => "events#mine"
+  get "find_events" => "events#find"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

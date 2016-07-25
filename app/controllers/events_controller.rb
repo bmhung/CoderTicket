@@ -56,4 +56,9 @@ class EventsController < ApplicationController
     @events = Event.where(user_id: current_user.id)
   end
 
+  def find
+    @events = Event.where("name LIKE :search_term", { search_term: "%"+params[:search_term]+"%" })
+    render "index"
+  end
+
 end
