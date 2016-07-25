@@ -57,9 +57,12 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-# test:
-#   <<: *default
-#   database: CoderTicket_test
+test:
+  <<: *default
+  database: d1m2vj5t88rv5j
+  url: postgres://nlttplchoqgexf:yM-OdbJzirzwb40A_qYhp5IM7Q@ec2-204-236-228-133.compute-1.amazonaws.com:5432/d1m2vj5t88rv5j
+  username: nlttplchoqgexf
+  password: yM-OdbJzirzwb40A_qYhp5IM7Q
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
