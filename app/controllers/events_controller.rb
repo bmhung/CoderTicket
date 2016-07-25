@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.where("ends_at >= :today", {today: DateTime.current})    
+    @events = Event.where("ends_at >= :today and publish_at IS NOT NULL", {today: DateTime.current})    
   end
 
   def show
